@@ -1,52 +1,108 @@
+<!-- Zaid Barber Shop Homepage for WordPress HTML Block -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaid Barber Shop</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            text-align: center;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('hero-image.jpg') center/cover;
+            padding: 120px 20px;
+            color: #f3ce92;
+            font-family: 'Playfair Display', serif;
+        }
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            color: #f3ce92;
+        }
+        .btn {
+            background: #f3ce92;
+            color: #000000;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #ff8c42;
+        }
+        section {
+            padding: 60px 20px;
+        }
+        #services {
+            background-color: #0e4c49;
+            padding: 80px 20px;
+            color: #ffffff;
+        }
+        footer {
+            background: #0e4c49;
+            padding: 30px;
+        }
+        .service-item {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #f3ce92;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Zaid Barber Shop</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#booking">Booking</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Welcome to Zaid Barber Shop</h1>
+        <p>Premium Grooming Experience</p>
+        <a href="#booking" class="btn">Book an Appointment</a>
     </header>
-    
-    <section id="home">
-        <h2>Welcome to Zaid Barber Shop</h2>
-        <p>We offer premium haircuts and grooming services.</p>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Experience luxury grooming at Zaid Barber Shop, where style meets precision.</p>
     </section>
 
+    <!-- Services Section -->
     <section id="services">
         <h2>Our Services</h2>
-        <ul>
-            <li>Haircuts</li>
-            <li>Shaves</li>
-            <li>Beard Styling</li>
-        </ul>
+        <div class="service-item">Classic Haircut</div>
+        <div class="service-item">Beard Grooming</div>
+        <div class="service-item">Facial Treatments</div>
+        <div class="service-item">Hot Towel Shave</div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>What Our Clients Say</h2>
+        <blockquote>"Best barber experience ever! Highly recommended." - John Doe</blockquote>
+    </section>
+
+    <!-- Booking Section -->
     <section id="booking">
         <h2>Book an Appointment</h2>
-        <p>Coming soon...</p>
+        <p>Reserve your spot today for a premium grooming experience.</p>
+        <a href="#" class="btn">Schedule Now</a>
     </section>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Location, Phone Number, Email</p>
-    </section>
-
+    <!-- Contact Section -->
     <footer>
-        <p>© 2025 Zaid Barber Shop</p>
+        <p>Contact us at: <a href="mailto:info@zaidbarbershop.com" style="color: #f3ce92;">info@zaidbarbershop.com</a></p>
+        <p>Follow us on Social Media</p>
     </footer>
-
-    <script src="scripts.js"></script>
 </body>
 </html>
