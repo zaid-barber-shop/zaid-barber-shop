@@ -1,65 +1,179 @@
-<!-- Zaid Barber Shop Homepage for WordPress HTML Block -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaid Barber Shop</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Styles -->
     <style>
+        /* Global Styles */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #000000;
             color: #ffffff;
             margin: 0;
             text-align: center;
+            line-height: 1.6;
         }
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('hero-image.jpg') center/cover;
-            padding: 120px 20px;
-            color: #f3ce92;
-            font-family: 'Playfair Display', serif;
-        }
+
         h1, h2 {
             font-family: 'Playfair Display', serif;
             color: #f3ce92;
         }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('hero-image.jpg') center/cover;
+            padding: 150px 20px;
+            color: #f3ce92;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Buttons */
         .btn {
             background: #f3ce92;
             color: #000000;
             padding: 12px 24px;
-            text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
             border-radius: 5px;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
+            display: inline-block;
         }
+
         .btn:hover {
             background: #ff8c42;
+            transform: scale(1.05);
         }
+
+        /* Sections */
         section {
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
+
+        #about, #testimonials, #booking {
+            background-color: #000000;
+        }
+
         #services {
             background-color: #0e4c49;
-            padding: 80px 20px;
-            color: #ffffff;
+            padding: 100px 20px;
         }
-        footer {
-            background: #0e4c49;
-            padding: 30px;
-        }
+
+        /* Service Items */
         .service-item {
             display: inline-block;
             margin: 20px;
-            padding: 20px;
+            padding: 25px;
             border: 2px solid #f3ce92;
             border-radius: 10px;
             width: 250px;
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(243, 206, 146, 0.2);
+        }
+
+        /* Testimonials */
+        blockquote {
+            font-style: italic;
+            color: #f3ce92;
+            margin: 20px auto;
+            padding: 20px;
+            border-left: 4px solid #f3ce92;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        /* Footer */
+        footer {
+            background: #0e4c49;
+            padding: 40px 20px;
+        }
+
+        footer a {
+            color: #f3ce92;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff8c42;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Tab Styles */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .tab-btn {
+            background: #f3ce92;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .tab-btn:hover, .tab-btn.active {
+            background: #ff8c42;
+        }
+        
+        .tab-content {
+            display: none;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: auto;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        .tick-item {
+            position: relative;
+            padding-left: 25px;
+            font-size: 1.2rem;
+        }
+
+        .tick-item::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #0e4c49;
+            font-size: 1.5rem;
         }
     </style>
 </head>
@@ -67,42 +181,140 @@
     <!-- Hero Section -->
     <header class="hero">
         <h1>Welcome to Zaid Barber Shop</h1>
-        <p>Premium Grooming Experience</p>
+        <p>Premium Grooming Experience with expert barbers ensuring the best style and comfort.</p>
         <a href="#booking" class="btn">Book an Appointment</a>
     </header>
 
     <!-- About Section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Experience luxury grooming at Zaid Barber Shop, where style meets precision.</p>
+    <section id="about" style="background-color: #000000; padding: 80px 20px; color: #ffffff;">
+        <h2 style="color: #f3ce92; font-size: 2.5rem;">About Us</h2>
+
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="showTab('who')">Who We Are</button>
+            <button class="tab-btn" onclick="showTab('mission')">Our Mission</button>
+            <button class="tab-btn" onclick="showTab('why')">Why Choose Us</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="who" class="tab-content active">
+            <p>Zaid Barber Shop is a <span style="font-weight: 700; color: #ff8c42;">premium grooming hub</span> specializing in <span style="font-weight: 700; color: #ff8c42;">haircuts, beard styling, and skincare treatments</span>. We blend tradition with modern techniques to ensure a top-tier experience.</p>
+        </div>
+
+        <div id="mission" class="tab-content">
+            <p>Our mission is to <span style="font-weight: 700; color: #ff8c42;">deliver precision and excellence</span> in grooming, ensuring every client leaves feeling <span style="font-weight: 700; color: #ff8c42;">confident and refreshed</span>.</p>
+        </div>
+
+        <div id="why" class="tab-content">
+            <ul style="list-style: none; padding: 0;">
+                <li class="tick-item">Expert barbers with years of experience</li>
+                <li class="tick-item">Luxurious and comfortable atmosphere</li>
+                <li class="tick-item">Premium-quality grooming products</li>
+                <li class="tick-item">Personalized services tailored to you</li>
+            </ul>
+        </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="service-item">Classic Haircut</div>
-        <div class="service-item">Beard Grooming</div>
-        <div class="service-item">Facial Treatments</div>
-        <div class="service-item">Hot Towel Shave</div>
-    </section>
+<!-- Services Section -->
+<section id="services" style="background-color: #0e4c49; padding: 80px 20px; text-align: center;">
+    <h2 style="color: #f3ce92; font-size: 2.5rem; margin-bottom: 40px;">Our Services</h2>
+    <div class="services-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+        <div class="service-item">
+            <h3 style="color: #f3ce92; font-size: 1.6rem;">Classic Haircut</h3>
+        </div>
+        <div class="service-item">
+            <h3 style="color: #f3ce92; font-size: 1.6rem;">Beard Grooming</h3>
+        </div>
+        <div class="service-item">
+            <h3 style="color: #f3ce92; font-size: 1.6rem;">Facial Treatments</h3>
+        </div>
+        <div class="service-item">
+            <h3 style="color: #f3ce92; font-size: 1.6rem;">Hot Towel Shave</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Service Item Styling -->
+<style>
+    #services {
+        text-align: center;
+    }
+
+    .services-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .service-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        padding: 20px;
+        background-color: #000000;
+        color: #ffffff;
+        width: 200px;
+        border: 2px solid #f3ce92;
+        border-radius: 10px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+
+    .service-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(243, 206, 146, 0.2);
+    }
+
+    .service-item h3 {
+        font-size: 1.6rem;
+        color: #f3ce92;
+        margin: 0;
+    }
+
+    #services h2 {
+        color: #f3ce92;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+</style>
+
 
     <!-- Testimonials Section -->
     <section id="testimonials">
         <h2>What Our Clients Say</h2>
         <blockquote>"Best barber experience ever! Highly recommended." - John Doe</blockquote>
+        <blockquote>"Professional service and stylish results every time!" - Mark Smith</blockquote>
+        <blockquote>"The ambiance and attention to detail make it a five-star experience!" - Alex Johnson</blockquote>
     </section>
 
     <!-- Booking Section -->
     <section id="booking">
         <h2>Book an Appointment</h2>
-        <p>Reserve your spot today for a premium grooming experience.</p>
+        <p>Secure your grooming session with our experts. Click below to schedule your visit.</p>
         <a href="#" class="btn">Schedule Now</a>
     </section>
 
     <!-- Contact Section -->
     <footer>
-        <p>Contact us at: <a href="mailto:info@zaidbarbershop.com" style="color: #f3ce92;">info@zaidbarbershop.com</a></p>
+        <h2>Contact Us</h2>
+        <p>Reach out to us for appointments or inquiries.</p>
+        <p><strong>Email:</strong> <a href="mailto:info@zaidbarbershop.com">info@zaidbarbershop.com</a></p>
+        <p><strong>Phone:</strong> +123 456 7890</p>
+        <p><strong>Address:</strong> 123 Grooming St, Barber City</p>
         <p>Follow us on Social Media</p>
     </footer>
+
+    <!-- Tab Functionality -->
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`button[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+    </script>
 </body>
 </html>
